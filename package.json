@@ -61,5 +61,6 @@
     "rollup-plugin-size-snapshot": "^0.10.0",
     "rollup-plugin-terser": "^5.1.3",
     "shx": "^0.3.2"
-  }
+  },
+  "name": "loadable-components"
 }

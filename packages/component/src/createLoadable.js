@@ -30,6 +30,11 @@ function createLoadable({
   function loadable(loadableConstructor, options = {}) {
     const ctor = resolveConstructor(loadableConstructor)
     const cache = {}
+
+    if (typeof options.onLoad === 'function') {
+      onLoad = options.onLoad
+    }
+
     function getCacheKey(props) {
       if (options.cacheKey) {
         return options.cacheKey(props)
