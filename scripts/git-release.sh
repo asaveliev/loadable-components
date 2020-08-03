@@ -14,6 +14,7 @@ for DIR in $(yarn run -s lerna changed --parseable); do
     NAME=$(cat "${DIR}/package.json" | jq -r '.name')
 
     (
+      echo $DIR
       cd "$DIR"
       yarn run prepublishOnly
     )
