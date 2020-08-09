@@ -31,10 +31,6 @@ function createLoadable({
     const ctor = resolveConstructor(loadableConstructor)
     const cache = {}
 
-    if (typeof options.onLoad === 'function') {
-      onLoad = options.onLoad
-    }    
-
     function getCacheKey(props) {
       if (options.cacheKey) {
         return options.cacheKey(props)
@@ -153,6 +149,11 @@ function createLoadable({
         if (onLoad) {
           setTimeout(() => {
             onLoad(this.state.result, this.props)
+          })
+        }
+        if (options.onLoad){
+          setTimeout(() => {
+            options.onLoad()
           })
         }
       }
